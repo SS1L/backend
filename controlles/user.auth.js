@@ -34,7 +34,7 @@ class UserAuth {
         return res.send(req.body)
 
     }
-
+sda
     async postLogin(req, res) {
         const { email, pass } = req.body;
         try {
