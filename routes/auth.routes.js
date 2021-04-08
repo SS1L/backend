@@ -7,5 +7,6 @@ const { verify } = require('../middleware/jwt');
 router.post('/reg', UserAuth.postAuth);
 router.post('/log', UserAuth.postLogin);
 router.get('/book', SearchBook.searchBook);
+router.get('/describeBook', SearchBook.describeBook);
 
 module.exports = router;

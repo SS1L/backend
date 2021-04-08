@@ -23,7 +23,7 @@ class UserAuth {
             if (checkEmail) return res.status(409).json({ message: 'Already exists' });
 
             if (pass !== repPass) return res.status(409).json({ message: 'Repeat password is incorrect' });
-
+            
             let passEnc = await bcrypt.hash(req.body.pass, 12)
             console.log(req.body)
             db.collection('movie').insert({ email, nickname, pass: passEnc })
@@ -34,7 +34,7 @@ class UserAuth {
         return res.send(req.body)
 
     }
-sda
+
     async postLogin(req, res) {
         const { email, pass } = req.body;
         try {
