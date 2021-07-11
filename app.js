@@ -1,18 +1,16 @@
-const { Router } = require('express');
-const dotenv = require('dotenv');
-// const db = require('./config/db');
-dotenv.config();
-let express = require('express');
-let bodyParser = require('body-parser');
-let port = process.env.PORT;
-let cors = require('cors');
-let routes = require('./routes/index');
-let app = express();
+const express = require('express');
 
-app.use(cors());
+const app = express();
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+
+dotenv.config();
+const port = process.env.PORT;
+const authentication = require('./routes/auth.routes');
+
 app.use(bodyParser.json());
-app.use('/api', routes);
+app.use('/api', authentication);
 
 app.listen(port, () => {
-    console.log(`Start up ${port}`);
-})
+  console.log(`Start up ${port}`);
+});

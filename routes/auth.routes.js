@@ -1,12 +1,7 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const UserAuth = require('../controlles/user.auth');
-const SearchBook = require('../controlles/search')
-const { verify } = require('../middleware/jwt');
 
-router.post('/reg', UserAuth.postAuth);
-router.post('/log', UserAuth.postLogin);
-router.get('/book', SearchBook.searchBook);
-router.get('/describeBook', SearchBook.describeBook);
+router.post('/reg', UserAuth.user);
+// router.post('/log', UserAuth.postLogin);
 
 module.exports = router;
