@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 dotenv.config({ path: '../.env' });
 const port = process.env.PORT;
 const userAuth = require('./routes/auth.routes');
+const welcome = require('./routes/welcome.route');
 
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true })
   .then(() => {
@@ -13,6 +14,7 @@ mongoose.connect(process.env.DB_URL, { useNewUrlParser: true })
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use('/api', userAuth);
+    app.use('/api', welcome);
 
     app.listen(port, () => {
       console.log('Server has started!');
